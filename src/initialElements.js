@@ -1,196 +1,184 @@
 export const treeRootId = 1;
+
 export const initialTree = {
   1: {
     id: "1",
     name: "root",
-    type: "input",
+    root: true,
     children: ["2", "3"],
+    data: {
+      action: "initialize",
+      host: "system",
+      group: "main",
+    },
+    cause: "always",
   },
   2: {
     id: "2",
     name: "child2",
+    root: false,
     children: ["4", "5"],
+    data: {
+      action: "process",
+      host: "serviceA",
+      group: "group1",
+    },
+    cause: "success",
   },
   3: {
     id: "3",
     name: "child3",
-    children: ["6"],
+    root: false,
+    children: ["6", "7"],
+    data: {
+      action: "validate",
+      host: "serviceB",
+      group: "group2",
+    },
+    cause: "error",
   },
   4: {
     id: "4",
     name: "child4",
+    root: false,
     children: ["8", "9"],
+    data: {
+      action: "fetchData",
+      host: "serviceC",
+      group: "group1",
+    },
+    cause: "success",
   },
   5: {
     id: "5",
     name: "child5",
+    root: false,
     children: [],
+    data: {
+      action: "complete",
+      host: "serviceD",
+      group: "group1",
+    },
+    cause: "always",
   },
   6: {
     id: "6",
     name: "child6",
+    root: false,
     children: ["10"],
+    data: {
+      action: "update",
+      host: "serviceE",
+      group: "group2",
+    },
+    cause: "error",
   },
   7: {
     id: "7",
     name: "child7",
+    root: false,
     children: [],
+    data: {
+      action: "rollback",
+      host: "serviceF",
+      group: "group2",
+    },
+    cause: "success",
   },
   8: {
     id: "8",
     name: "child8",
+    root: false,
     children: ["11"],
+    data: {
+      action: "retry",
+      host: "serviceG",
+      group: "group1",
+    },
+    cause: "error",
   },
   9: {
     id: "9",
     name: "child9",
+    root: false,
     children: [],
+    data: {
+      action: "notify",
+      host: "serviceH",
+      group: "group1",
+    },
+    cause: "always",
   },
   10: {
     id: "10",
     name: "child10",
+    root: false,
     children: ["12", "13"],
+    data: {
+      action: "analyze",
+      host: "serviceI",
+      group: "group3",
+    },
+    cause: "success",
   },
   11: {
     id: "11",
     name: "child11",
-    surname: "Lucas",
-    startCondition: true,
+    root: false,
     children: [],
+    data: {
+      action: "log",
+      host: "serviceJ",
+      group: "group1",
+    },
+    cause: "always",
   },
   12: {
     id: "12",
     name: "child12",
+    root: false,
     children: ["14"],
+    data: {
+      action: "archive",
+      host: "serviceK",
+      group: "group3",
+    },
+    cause: "success",
   },
   13: {
     id: "13",
     name: "child13",
+    root: false,
     children: [],
+    data: {
+      action: "monitor",
+      host: "serviceL",
+      group: "group3",
+    },
+    cause: "always",
   },
   14: {
     id: "14",
     name: "child14",
+    root: false,
     children: ["15"],
+    data: {
+      action: "deploy",
+      host: "serviceM",
+      group: "group3",
+    },
+    cause: "success",
   },
   15: {
     id: "15",
     name: "child15",
+    root: false,
     children: [],
-  },
-  16: {
-    id: "16",
-    name: "child16",
-    children: ["17"],
-  },
-  17: {
-    id: "17",
-    name: "child17",
-    children: ["18"],
-  },
-  18: {
-    id: "18",
-    name: "child18",
-    children: ["19"],
-  },
-  19: {
-    id: "19",
-    name: "child19",
-    children: [],
-  },
-  20: {
-    id: "20",
-    name: "child20",
-    children: ["21", "22"],
-  },
-  21: {
-    id: "21",
-    name: "child21",
-    children: [],
-  },
-  22: {
-    id: "22",
-    name: "child22",
-    children: [],
-  },
-  23: {
-    id: "23",
-    name: "child23",
-    children: ["24"],
-  },
-  24: {
-    id: "24",
-    name: "child24",
-    children: ["25", "26"],
-  },
-  25: {
-    id: "25",
-    name: "child25",
-    children: [],
-  },
-  26: {
-    id: "26",
-    name: "child26",
-    children: [],
-  },
-  27: {
-    id: "27",
-    name: "child27",
-    children: ["28"],
-  },
-  28: {
-    id: "28",
-    name: "child28",
-    children: ["29"],
-  },
-  29: {
-    id: "29",
-    name: "child29",
-    children: ["30"],
-  },
-  30: {
-    id: "30",
-    name: "child30",
-    children: [],
+    data: {
+      action: "terminate",
+      host: "serviceN",
+      group: "group3",
+    },
+    cause: "error",
   },
 };
-
-/*
-  aqui temos um objeto com irmaos e parceiros
-  export const initialTree = {
-  1: {
-    id: "1",
-    name: "root",
-    type: "input",
-    children: ["2", "3"],
-    siblings: ["8"],
-    spouses: ["10"],
-  },
-  2: { id: "2", name: "child2" },
-  3: {
-    id: "3",
-    name: "child3",
-    children: ["4", "5"],
-    siblings: ["9"],
-    spouses: ["6"],
-  },
-  4: { id: "4", name: "grandChild4" },
-  5: { id: "5", name: "grandChild5" },
-  6: { id: "6", name: "spouse of child 3", isSpouse: true },
-  8: {
-    id: "8",
-    name: "root sibling",
-    isSibling: true,
-  },
-  9: {
-    id: "9",
-    name: "child3 sibling",
-    isSibling: true,
-  },
-  10: {
-    id: "10",
-    name: "root spouse",
-    isSpouse: true,
-  },
-};
-*/

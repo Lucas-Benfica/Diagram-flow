@@ -182,7 +182,7 @@ const TestDiv = styled.div`
 
 const StyledReactFlow = styled(ReactFlow)`
   /* Custom Variables */
-  --xy-theme-selected: #f57dbd;
+  --xy-theme-selected: #2e5885; // #f57dbd;
   --xy-theme-hover: #c5c5c5;
   --xy-theme-edge-hover: black;
   --xy-theme-color-focus: #e8e8e8;
@@ -243,10 +243,23 @@ const StyledReactFlow = styled(ReactFlow)`
 
     // Estilos internos
     .cause {
-      width: 5px;
-      background-color: red;
-      border-radius: 0 10px 10px 0;
       height: 100%;
+      padding: 8px 0;
+      > div {
+        width: 5px;
+        height: 100%;
+        border-radius: 0 8px 8px 0;
+        background-color: #303b46;
+      }
+      .error {
+        background-color: #be0303;
+      }
+      .success {
+        background-color: #06b003;
+      }
+      .always {
+        background-color: #303b46;
+      }
     }
     .obj {
       width: 100%;
@@ -261,20 +274,27 @@ const StyledReactFlow = styled(ReactFlow)`
       gap: 10px;
       padding: 0 5px;
       overflow: hidden;
+      font-family: "Roboto", serif;
       .text {
         display: flex;
         gap: 5px;
         align-items: center;
       }
       h1 {
-        font-size: 12px;
+        font-size: 11px;
         font-weight: 400;
         color: #707070;
       }
       h2 {
-        font-size: 13px;
+        width: 100%;
+        font-size: 12px;
         font-weight: 500;
         color: #000000;
+        padding-right: 5px;
+        text-align: left;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
       }
     }
     .buttons {
@@ -283,13 +303,14 @@ const StyledReactFlow = styled(ReactFlow)`
       flex-direction: column;
       justify-content: space-between;
       align-items: center;
+      padding: 3px 0;
       button {
         height: 22px;
         width: 22px;
         font-size: 10px;
         text-align: center;
         border-radius: 50px;
-        svg{
+        svg {
           font-size: 12px;
         }
       }

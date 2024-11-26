@@ -1,7 +1,7 @@
 import React, { memo } from "react";
 import { Handle, Position } from "@xyflow/react";
 import styled from "styled-components";
-import { Button, ButtonGroup, IconButton } from "@mui/material";
+import { Button, ButtonGroup, IconButton, Tooltip } from "@mui/material";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import ModeEditIcon from "@mui/icons-material/ModeEdit";
 import PlaylistAddIcon from "@mui/icons-material/PlaylistAdd";
@@ -43,32 +43,40 @@ export default memo(({ data }) => {
           id={getTargetPosition()}
         />
       )}
-      <div className="cause"></div>
+      <div className="cause">
+        <div className={data.cause || ""}></div>
+      </div>
       <div className="obj">
         <div className="info">
           <div className="text">
             <h1>Action:</h1>
-            <h2>{label}</h2>
+            <h2>{data.data.action}</h2>
           </div>
           <div className="text">
             <h1>Host:</h1>
-            <h2>Host-Lucas</h2>
+            <h2>{data.data.host}</h2>
           </div>
           <div className="text">
             <h1>Group:</h1>
-            <h2>Grupo-Front</h2>
+            <h2>{data.data.group}</h2>
           </div>
         </div>
         <div className="buttons nodrag">
-          <IconButton aria-label="delete" size="small">
-            <ModeEditIcon />
-          </IconButton>
-          <IconButton aria-label="delete" size="small">
-            <PlaylistAddIcon />
-          </IconButton>
-          <IconButton aria-label="delete" size="small">
-            <DeleteForeverIcon />
-          </IconButton>
+          <Tooltip title="Edit/Open" arrow placement="right">
+            <IconButton aria-label="delete" size="small">
+              <ModeEditIcon />
+            </IconButton>
+          </Tooltip>
+          <Tooltip title="Add SubAction" arrow placement="right">
+            <IconButton aria-label="delete" size="small">
+              <PlaylistAddIcon />
+            </IconButton>
+          </Tooltip>
+          <Tooltip title="Delete" arrow placement="right">
+            <IconButton aria-label="delete" size="small">
+              <DeleteForeverIcon />
+            </IconButton>
+          </Tooltip>
         </div>
       </div>
     </TestDiv>
@@ -79,6 +87,5 @@ const TestDiv = styled.div`
   width: 100%;
   height: 100%;
   display: flex;
-  padding: 7px 0;
-  //background-color: blue;
+  border-radius: 8px;
 `;
