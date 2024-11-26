@@ -174,11 +174,13 @@ export default memo(({ data }) => {
               <PlaylistAddIcon />
             </IconButton>
           </Tooltip>
+
           <Tooltip title="Delete" arrow placement="right">
             <IconButton
               aria-label="delete"
               size="small"
               onClick={() => deleteAction(data.id)}
+              disabled={data.root}
             >
               <DeleteForeverIcon />
             </IconButton>
