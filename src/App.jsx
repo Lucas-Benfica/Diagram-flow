@@ -63,35 +63,6 @@ const LayoutFlow = () => {
     setEdges(updatedEdges);
   }, [tree]);
 
-  // teste
-
-  const addChildToRoot = () => {
-    setActionsFlow((prevTree) => {
-      // Gera um novo ID único para o nó
-      const newId = String(Object.keys(prevTree).length + 1);
-
-      // Cria o novo item fictício
-      const newNode = {
-        id: newId,
-        name: `child${newId}`,
-        surname: `surname${newId}`,
-        startCondition: false, // Pode ajustar conforme necessário
-        children: [],
-      };
-
-      // Atualiza o grafo
-      const updatedTree = { ...prevTree };
-
-      // Adiciona o novo nó ao root
-      updatedTree["1"].children.push(newId);
-      updatedTree[newId] = newNode;
-
-      return updatedTree;
-    });
-  };
-
-  // fim teste
-
   const onConnect = useCallback(
     (params) =>
       setEdges((eds) =>
@@ -125,6 +96,7 @@ const LayoutFlow = () => {
       <TestDiv>
         <StyledReactFlow
           colorMode="light"
+          //colorMode="dark"
           nodes={nodes}
           edges={edges}
           onNodesChange={onNodesChange}
@@ -140,8 +112,6 @@ const LayoutFlow = () => {
             <button onClick={() => onLayout("LR")}>horizontal layout</button>
           </Panel>
           <Panel position="top-right">
-            <button onClick={addChildToRoot}>Adicionar Filho ao Root</button>
-
             <button
               style={{ backgroundColor: "#34f00a" }}
               onClick={() => console.log(nodes, edges)}

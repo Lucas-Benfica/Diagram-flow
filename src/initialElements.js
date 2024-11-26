@@ -6,6 +6,7 @@ export const initialTree = {
     name: "root",
     root: true,
     children: ["2", "3"],
+    parent: null, // Root não possui pai
     data: {
       action: "initialize",
       host: "system",
@@ -18,6 +19,7 @@ export const initialTree = {
     name: "child2",
     root: false,
     children: ["4", "5"],
+    parent: "1", // Pai é o nó "1"
     data: {
       action: "process",
       host: "serviceA",
@@ -30,6 +32,7 @@ export const initialTree = {
     name: "child3",
     root: false,
     children: ["6", "7"],
+    parent: "1", // Pai é o nó "1"
     data: {
       action: "validate",
       host: "serviceB",
@@ -42,6 +45,7 @@ export const initialTree = {
     name: "child4",
     root: false,
     children: ["8", "9"],
+    parent: "2", // Pai é o nó "2"
     data: {
       action: "fetchData",
       host: "serviceC",
@@ -54,6 +58,7 @@ export const initialTree = {
     name: "child5",
     root: false,
     children: [],
+    parent: "2", // Pai é o nó "2"
     data: {
       action: "complete",
       host: "serviceD",
@@ -66,6 +71,7 @@ export const initialTree = {
     name: "child6",
     root: false,
     children: ["10"],
+    parent: "3", // Pai é o nó "3"
     data: {
       action: "update",
       host: "serviceE",
@@ -78,6 +84,7 @@ export const initialTree = {
     name: "child7",
     root: false,
     children: [],
+    parent: "3", // Pai é o nó "3"
     data: {
       action: "rollback",
       host: "serviceF",
@@ -90,6 +97,7 @@ export const initialTree = {
     name: "child8",
     root: false,
     children: ["11"],
+    parent: "4", // Pai é o nó "4"
     data: {
       action: "retry",
       host: "serviceG",
@@ -102,6 +110,7 @@ export const initialTree = {
     name: "child9",
     root: false,
     children: [],
+    parent: "4", // Pai é o nó "4"
     data: {
       action: "notify",
       host: "serviceH",
@@ -114,6 +123,7 @@ export const initialTree = {
     name: "child10",
     root: false,
     children: ["12", "13"],
+    parent: "6", // Pai é o nó "6"
     data: {
       action: "analyze",
       host: "serviceI",
@@ -126,6 +136,7 @@ export const initialTree = {
     name: "child11",
     root: false,
     children: [],
+    parent: "8", // Pai é o nó "8"
     data: {
       action: "log",
       host: "serviceJ",
@@ -138,6 +149,7 @@ export const initialTree = {
     name: "child12",
     root: false,
     children: ["14"],
+    parent: "10", // Pai é o nó "10"
     data: {
       action: "archive",
       host: "serviceK",
@@ -150,6 +162,7 @@ export const initialTree = {
     name: "child13",
     root: false,
     children: [],
+    parent: "10", // Pai é o nó "10"
     data: {
       action: "monitor",
       host: "serviceL",
@@ -162,6 +175,7 @@ export const initialTree = {
     name: "child14",
     root: false,
     children: ["15"],
+    parent: "12", // Pai é o nó "12"
     data: {
       action: "deploy",
       host: "serviceM",
@@ -174,6 +188,7 @@ export const initialTree = {
     name: "child15",
     root: false,
     children: [],
+    parent: "14", // Pai é o nó "14"
     data: {
       action: "terminate",
       host: "serviceN",
